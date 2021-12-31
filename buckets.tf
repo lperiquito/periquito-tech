@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "tfstate" {
-  bucket = "periquito-tfstate"
+  bucket = var.state_bucket_name
 
   server_side_encryption_configuration {
     rule {
@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "tfstate" {
 }
 
 resource "aws_s3_bucket" "tech-site" {
-  bucket = "periquito-tech"
+  bucket = var.bucket_name
   acl    = "public-read"
 
   policy = file("policy.json")

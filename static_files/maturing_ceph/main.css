@@ -1,0 +1,501 @@
+
+
+
+/****************** Special Blank CSS classes for child themes to use without disturbing core bootstrap styles ****************/
+
+.dmbs-container {
+}
+.dmbs-header {
+}
+.dmbs-header-img {
+}
+.dmbs-header-text {
+}
+.dmbs-top-menu {
+	padding: 0 15px 0 15px;
+	background-color: #EAEBEB;
+}
+.dmbs-content {
+	margin: 0 auto;
+	width: 100%;/*max-width:980px;*/
+	/*text-align:center;*/
+}
+/*.category .dmbs-content,
+.single .dmbs-content,
+.page-template-template-news-single-php .dmbs-content
+{
+	max-width:980px;
+}*/
+
+.single .dmbs-content, .category .dmbs-content {
+	text-align: left;
+}
+.dmbs-main {
+	padding-top: 45px;
+	margin: 350px 0 0 0;
+	/*border-top: 328px solid #303639;*/
+	padding-left: 0;
+	padding-right: 0
+}
+.dmbs-left {
+}
+.dmbs-right {
+}
+.dmbs-footer-menu {
+}
+.dmbs-author-credits {
+}
+/************************************************** Main styles **************************************************/
+
+a {
+	color: #333333;
+	font-size: 1.6rem;
+}
+h3 {
+	font-size: 2.6em;
+	margin-top: 0;
+	color: #666666;
+}
+
+.news-main-title
+{
+	margin-top: 30px;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.single h3 {
+	font-size: 3em;
+	margin-bottom: 1em;
+}
+h4 {
+	font-size: 2em;
+	margin-top: 0;
+	color: #666666;
+}
+p, ul, ol, label {
+	font-size: 1.6rem;
+	color: #666666;
+	font-weight: normal;
+}
+.hand
+{
+	cursor:pointer;
+}
+
+html tr.noBorder td
+{
+	border-top: 0;
+}
+
+.post-content
+{
+	padding-bottom: 40px; /* Add padding under main text area*/
+}
+
+/********* make last nav option open to the left ************/
+
+/* Technology */
+#menu-main-menu .menu-item:last-of-type .dropdown-menu {
+	left: auto;
+	right: 0;
+}
+
+/* Engineering */
+#menu-primary-menu .menu-item:last-of-type .dropdown-menu {
+	left: auto;
+	right: 0;
+}
+
+.addtoany_share_save_container {
+	clear: both;
+	margin: 0;
+	padding: 20px 0;
+}
+.post-entry ul, .post-entry ol {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	left: 30px;
+	margin-right: 15px;
+}
+.post-entry ul li {
+}
+.nav-logo {
+	display: block;
+	margin: 15px 0 0 15px;
+}
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	padding-bottom: 0;
+}
+.bs-col-centred {
+	display: block;
+	margin: 0 auto;
+	float: none;
+}
+/********* Override boostrap container to get full width ************/
+
+.container {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/***************** Newsletter form ********************/
+
+
+
+.btn-mobile {
+	display: none;
+}
+.newsletter-form label {
+	display: block;
+}
+
+@media screen and (max-width: 768px) {
+.btn-mobile {
+	display: block;
+}
+.btn-desktop {
+	display: none;
+}
+.newsletter-form input[type="checkbox"] {
+	margin: 0 10px 0 5px;
+	padding: 0;
+	position: static;
+}
+.newsletter-form .checkbox label {
+	padding: 10px 0 10px 0;
+	background-color: #f5f5f5;
+	display: block;
+}
+}
+
+/***************** Partners page ********************/
+
+.partners img
+{
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+	padding: 30px;
+	display: block;
+}
+
+/***************** blockquote ********************/
+
+
+blockquote {
+	/*font-family: Georgia, serif;*/
+	font-size: 18px;
+	font-style: italic;
+	width: 80%;
+	margin: 0.25em 0;
+	padding: 0.25em 40px;
+	line-height: 1.45;
+	position: relative;
+	color: #383838;
+	border-left: none;
+}
+blockquote:before {
+	display: block;
+	content: "\201C";
+	font-size: 80px;
+	position: absolute;
+	left: -20px;
+	top: -20px;
+	color: #7a7a7a;
+}
+blockquote cite {
+	color: #999999;
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+}
+blockquote cite:before {
+	content: "\2014 \2009";
+}
+/******************   location skylines ***************************/
+
+
+.skyline {
+	background-repeat: no-repeat;
+	background-position: center 60px;
+	text-align: center;
+	height: 250px;
+	overflow: hidden;
+	background-size: 175px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+.skyline:hover {
+	text-decoration: none;
+	background-size: 190px;
+	background-position: center 50px;
+}
+.skyline:hover h2 {
+	font-size: 32px;
+	margin-top: 18px;
+}
+.skyline h2 {
+	color: #FFFFFF;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+/*.skyline-hatfield h2,
+.skyline-sofia h2
+{
+	color:#CCE7F1;
+}
+.skyline-krakow h2,
+.skyline-barcelona h2
+{
+	color:#FEF2D6;
+}
+.skyline-wroclow h2
+{
+	color:#D7E9C9;
+}*/
+
+.skyline-hatfield {
+	background-image: url('/web/20170707002200im_/http://ocadotechnology.com/wp-content/images/skyline-hatfield.png');
+	background-color: #00A0D4;
+}
+.skyline-krakow {
+	background-image: url('/web/20170707002200im_/http://ocadotechnology.com/wp-content/images/skyline-krakow.png');
+	background-color: #E68132;
+}
+.skyline-wroclow {
+	background-image: url('/web/20170707002200im_/http://ocadotechnology.com/wp-content/images/skyline-wroclow.png');
+	background-color: #A1B23E;
+}
+.skyline-sofia {
+	background-image: url('/web/20170707002200im_/http://ocadotechnology.com/wp-content/images/skyline-sofia.png');
+	background-color: #00A0D4;
+}
+.skyline-barcelona {
+	background-image: url('/web/20170707002200im_/http://ocadotechnology.com/wp-content/images/skyline-barcelona.png');
+	background-color: #E68132;
+}
+
+
+
+
+.bread-crumb {
+	margin-bottom: 20px;
+}
+/************* sidebar accordion **********************/
+
+.panel-group {
+	margin-bottom: 0;
+}
+ul.author-post-list {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+
+
+
+/************* News and events template *******************/
+
+.page-template-template-news-events .internal-container h3 {
+	margin-bottom: 0;
+}
+.page-template-template-news-events .internal-container p {
+	font-size: 1.4rem;
+}
+
+/********************Pagination ***********************/
+
+.pgntn-page-pagination a, .pgntn-page-pagination-intro, .pgntn-page-pagination .current {
+	color: #333333 !important;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 8px !important;
+	float: left;
+	height: 40px;
+}
+/*************************************************/
+
+.page-template-template-news-single-php .dmbs-content .internal-container h3 {
+	border-top: 1px solid #f5f5f5;
+	padding-top: 10px;
+}
+html tr.tr-no-border td {
+	border-top: none;
+}
+.dmbs-comments {
+	margin-top: 20px;
+}
+.author-date
+{
+	color: #666666;
+	background-color:#F7F7F7;
+	padding:10px;
+	display:block;
+	border-bottom: 3px solid #e7e7e7;
+	text-align:right;
+}
+.author-date a
+{
+	font-weight:bold;
+	color: #666666;
+}
+.single .author-date
+{
+	border-bottom:none;
+	/*text-align:right;*/
+	margin-bottom:20px;
+}
+
+.category-item {
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	color: #333333;
+	position: relative;
+	/*border-bottom: 1px solid #f5f5f5;*/
+	padding-top: 40px;
+	padding-bottom: 20px;
+	clear:both;
+}
+.category-item:hover {
+	text-decoration: none;
+	color: #333333;
+}
+.read-more {
+	font-size: 1.2em;
+	position: absolute;
+	bottom: -15px;
+	right: 15px;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s linear;
+}
+.category-item:hover .read-more {
+	visibility: visible;
+	opacity: 1;
+}
+.category-thumbnail {
+	width: 100%;
+	/*max-width:150px;*/
+	height: auto;
+	margin-right: 15px;
+	display: block;
+}
+.single-thumbnail {
+	float: left;
+	margin-right: 15px;
+	display: block;
+}
+
+
+/******************* News menu selected when viewing post*****************************/
+
+#menu-news-and-events .current-post-ancestor a {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: #fff;
+	border-color: #ddd #ddd transparent;
+	border-image: none;
+	border-style: solid;
+	border-width: 1px;
+	color: #555555;
+	cursor: default;
+}
+/************************************************/
+
+/*************** Tab menu styles ********************/
+
+.nav-tabs .active
+{
+	font-weight: bold;
+}
+
+ul.nav-tabs a
+{
+	font-size:2rem;	
+}
+
+/*********cookie button**************/
+#catapultCookie
+{
+color:#666666;	
+}
+
+/*************** Video popup ********************/
+
+	#videoModal
+	{
+		z-index: 1041;
+	}
+/*************** /
+
+/*************** youtube playlist ********************/
+
+.repeat-image .youtube_thumb img
+{
+	float: left;
+	width: 70px;
+	margin: 0 15px 0 23px;
+	
+}
+
+.youtube_thumb
+{
+	clear: both;
+	overflow: hidden;
+	display: block;
+	line-height: normal;
+	background-color: #333333;
+	margin-bottom: 3px;
+	padding: 3px;
+	color: #CCCCCC;
+}
+
+.youtube_thumb:hover
+{
+	background-color: #999999;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.youtube_thumb .yplay
+{
+	position:absolute;
+	margin:15px 0 0 -105px;
+	z-index: 2;
+	color:#c03636;
+}
+/***************/
+
+
+/*
+     FILE ARCHIVED ON 00:22:00 Jul 07, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:32:49 Sep 02, 2019.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  PetaboxLoader3.datanode: 56.964 (4)
+  RedisCDXSource: 23.611
+  LoadShardBlock: 39.967 (3)
+  PetaboxLoader3.resolve: 479.204
+  exclusion.robots: 0.162
+  captures_list: 78.526
+  exclusion.robots.policy: 0.151
+  load_resource: 522.936
+  CDXLines.iter: 12.254 (3)
+  esindex: 0.008
+*/

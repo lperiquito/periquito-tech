@@ -1,0 +1,142 @@
+
+			  .hex-mobile
+			   {
+				   display: none;
+			   }
+			  #hexResize
+			   {
+				   max-width: 960px;
+				   min-width: 768px;
+				   margin: 0 auto;
+				   display: block;
+			   }
+            .hexagon-blue {
+                fill:#00a1e1;
+            }
+
+            .hexagon-green {
+                fill:#a9ae00;
+            }
+
+            .hexagon-grey {
+                fill:#53585a;
+            }
+
+            text {
+                font-family:'Source Sans Pro', sans-serif;
+                fill: white;
+                font-size:20px;
+				cursor: pointer; 
+            }
+
+            tspan {
+                text-anchor: middle;
+            }
+			
+			
+			/********* Animations **********/
+			.fade-in {
+			-webkit-animation-name: do-fade; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+			animation-name: do-fade;
+			animation-duration: 0.5s;
+			animation-iteration-count: 1;
+			animation-direction: reverse;
+				cursor: pointer; 
+			}
+			/* Safari 4.0 - 8.0 */
+			@-webkit-keyframes do-fade{
+				 0% {
+				opacity:1;
+				}
+				 100% {
+				opacity:0;
+				}
+			}
+			
+			/* Standard syntax */
+			@keyframes do-fade {
+				 0% {
+				opacity:1;
+				}
+				 100% {
+				opacity:0;
+				}
+			}
+			   
+/*************************** Smaller than Ipad ***********************/ 
+@media screen and (max-width: 767px) {
+	#hexResize
+	{
+		display: none;
+	}
+.hex {
+	display: block;
+	float: left;
+	width: 50%;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5;
+	margin: 0 0 3px 0;
+}
+.hex-bottom-right {
+	width: 100%;
+}
+.hex a {
+	padding: 5px;
+	background-color: #A9AE00;
+	display: block;
+	color: #FFF;
+	height: 100px;
+	margin: 0 2px;
+}
+.hex a:hover {
+	background-color: #dcdcdc;
+	text-decoration: none;
+}
+.hex-mobile ul, .hex-mobile ol {
+	padding: 0;
+	margin: 0;
+}
+.hex-mobile {
+	overflow: hidden;
+	display: block;
+	margin: 10px 0;
+}
+#main-content .internal-container, #main-content .dmbs-main {
+	padding: 0 0;
+}
+}
+	
+
+/*********************************************/
+			
+
+    
+/*
+     FILE ARCHIVED ON 22:18:06 Jul 06, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:32:50 Sep 02, 2019.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  esindex: 0.01
+  PetaboxLoader3.datanode: 178.759 (5)
+  exclusion.robots: 0.176
+  LoadShardBlock: 61.157 (3)
+  CDXLines.iter: 14.368 (3)
+  RedisCDXSource: 1.624
+  captures_list: 80.122
+  exclusion.robots.policy: 0.164
+  PetaboxLoader3.resolve: 118.241 (2)
+  load_resource: 533.185
+*/

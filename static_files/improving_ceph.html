@@ -1,0 +1,125 @@
+<meta charset="utf-8" />
+<title>Improving the performance of the Ceph storage platform at Ocado Technology</title>
+<link rel="stylesheet" type="text/css" href="improving_ceph/hexagons.css" />
+<link rel="stylesheet" type="text/css" href="improving_ceph/main.css" />
+<style type="text/css">
+div {
+  width: 90%;
+}
+</style>
+
+<div id="main-content" class="row dmbs-content">
+
+        
+    <!--<div class="col-md-9 dmbs-main"> -->
+    <div class="col-md-12 dmbs-main">
+	<div class="internal-container">
+       
+        			
+            <div class="col-md-9">
+                      
+                  
+              <h4>Improving the performance of the Ceph storage platform at Ocado Technology</h4>
+             <!-- Trigger the Modal -->
+            
+            <img class="single-thumbnail" src="improving_ceph/Ceph_Logo_-300x300.png" alt="Improving the performance of the Ceph storage platform at Ocado Technology">
+            
+
+                      
+                
+            <p><span style="font-weight: 400;">As any solution grows 
+over time, there’s always the concern as to how it will perform, 
+especially as the applications using it also increase in both number and
+ size.</span></p>
+<p><span style="font-weight: 400;">Ceph
+ has been designed to be a scale-out platform: as one adds more nodes to
+ the solution, the performance increases accordingly. Due to the 
+parallel way in which Ceph works (where the clients connect directly to 
+each OSD [Object Storage Daemon]), each operation will potentially be 
+spread across all nodes in the cluster.</span></p>
+<p><span style="font-weight: 400;">But this only ensures that the 
+overall performance will grow as we add more nodes; there is still the 
+issue where the fastest operation will be limited by the slowest part. 
+As such, if we want to improve other metrics such as latency, we need to
+ look at each member of the cluster and improve them independently.</span></p>
+<p><span style="font-weight: 400;">The first hurdle was due to all of 
+the metadata associated with the S3 interface. This interface has a 
+number of supporting pools that contain all the supporting data for the 
+objects. The data is read very often, actually much more often than the 
+objects themselves, and, whenever an S3 operation occurs, there will be 
+several operations on the metadata pools. Since we initially had all of 
+these pools on HDDs, the cluster was very slow.</span></p>
+<p><span style="font-weight: 400;">To solve this problem, we added some 
+SSDs to the cluster, created a new CRUSH tree with the SSDs and targeted
+ these pools to the SSDs. This simple change brought a huge performance 
+improvement for the specific S3 workload.</span></p>
+<p><span style="font-weight: 400;">The next issue was around the 
+journal. In Ceph, each write is done twice: one synchronous write for 
+journal, and one buffered in the supporting filestore. Only after the 
+journal write is acknowledged by the journal media is the operation 
+returned to the client as finished. One quick way to improve this is by 
+having a small journal on a very fast media, and then a massive storage 
+system for the data. This way, it’s possible to have the fast write 
+performance of the journal device for the low cost of the massive media.</span></p>
+<p><span style="font-weight: 400;">As we already had SSDs to store the metadata pools, it was easy to use them also as journals.</span></p>
+<p><span style="font-weight: 400;">However not all SSDs are equal – 
+there will always be different performance and cost characteristics even
+ between devices from the same SSD manufacturer.</span></p>
+<div id="attachment_1060" style="max-width: 810px" class="wp-caption alignnone"><img class="size-large wp-image-1060" src="improving_ceph/Screen-Shot-2017-06-08-at-14.png" alt="Node CPU times" sizes="(max-width: 800px) 100vw, 800px" width="800" height="310"><p class="wp-caption-text">Node CPU times</p></div>
+<p><span style="font-weight: 400;">The graph above shows exactly this fact: we have the same node and workload, just different SSDs.</span></p>
+<p><span style="font-weight: 400;">Based on our findings, we chose to 
+have massive, cheap SSDs for the main storage system, with very fast, 
+small and expensive SSDs for the journal.</span></p>
+<p><span style="font-weight: 400;">Another very important part of the 
+design of such a solution will be the per-node CPU and memory 
+configuration. The CPU speed will directly determine the latency of a 
+single request while the amount of memory will allow the system to cache
+ IO operations.</span></p>
+<p><span style="font-weight: 400;">The higher the frequency of the CPU, the lower the latency of each request. Changing from the default</span><i><span style="font-weight: 400;"> ondemand driver</span></i><span style="font-weight: 400;"> to the </span><i><span style="font-weight: 400;">performance driver </span></i><span style="font-weight: 400;">brought a big performance boost: we’ve seen improvements of at least 50% in our environment.</span></p>
+<p><span style="font-weight: 400;">The memory is also used for thread 
+allocation (TCMalloc by default in Ceph). In busy environments the 
+default value (32 MB) is not enough; we’ve found that adding more memory
+ made everything a lot better. From our tests, our workloads require 
+something around 128 MB.</span></p>
+<p><span style="font-weight: 400;">Another option would have been 
+replacing TCMalloc with Jemalloc; however, during our tests, we didn’t 
+find any significant difference – both allocations were within 1% of 
+each other, either from a latency or bandwidth point of view.</span></p>
+<p><span style="font-weight: 400;">We currently have two standard Ceph 
+builds: one for fast storage, and another for massive (backup) storage. 
+However the same principles apply to both, and the results are somewhat 
+similar.</span></p>
+<p><span style="font-weight: 400;">The standard fast storage build is a 
+single CPU, with high frequency, and up to 2 SSDs per core. There is 
+also a fast journal SSD for up to 4 SSDs. Currently we’re using Fujitsu 
+RX1330 servers with an Intel Xeon E3-12xx CPU, Samsung 850 Pro drives 
+for storage, and Intel P3700 for the journal.</span></p>
+<p><span style="font-weight: 400;">After performing the required cluster tuning described above, we obtained the following results:</span></p>
+<div id="attachment_1061" style="max-width: 810px" class="wp-caption alignnone"><img class="wp-image-1061 size-large" src="improving_ceph/Screen-Shot-2017-06-08-at-14_002.png" alt="Performance by READ percentage" sizes="(max-width: 800px) 100vw, 800px" width="800" height="420"><p class="wp-caption-text">Performance by READ percentage</p></div>
+<p><span style="font-weight: 400;">The test was done inside a single 
+OpenStack instance (RBD interface) with relatively high queue-depth 
+(16), small block size (8kB), and some parallelism (24). The working set
+ was bigger than all the caches (1TB), and instructed fio to do 
+input/output operations (I/O) as random as possible. As the I/O size is 
+fixed for these tests, the number of I/Os has a very similar graph. The 
+horizontal line represents the percentage of read I/Os where 100 means 
+that only read operations were made.</span></p>
+<p><span style="font-weight: 400;">Thanks to the Ceph and OpenStack 
+architectures, we saw higher throughput by adding more instances to the 
+test, but there is diminishing return after reaching a certain number of
+ clients which is directly dependent on the number of OSDs.</span></p>
+<p>Luis Periquito, Unix Team Lead</p>
+
+<p>This was originally posted in the <a href="https://www.ocadotechnology.com/blog/improving-the-performance-of-the-ceph-storage-platform-at-ocado-technology/">Ocado Technology blog</a> on the 8th of June 2017, but has since been removed</p>
+<p>Go back <a href="/">Home</a></p>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145348699-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145348699-1');
+</script>
+

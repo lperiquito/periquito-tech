@@ -1,0 +1,94 @@
+<meta charset="utf-8" />
+<title>Maturing the Ceph storage platform at Ocado Technology</title>
+<link rel="stylesheet" type="text/css" href="maturing_ceph/hexagons.css" />
+<link rel="stylesheet" type="text/css" href="maturing_ceph/main.css" />
+<style type="text/css">
+div {
+  width: 90%;
+}
+</style>
+
+<div id="main-content" class="row dmbs-content">
+
+        
+    <!--<div class="col-md-9 dmbs-main"> -->
+    <div class="col-md-12 dmbs-main">
+	<div class="internal-container">
+       
+        			
+            <div class="col-md-9">
+<h4>Maturing the Ceph storage platform at Ocado Technology</h4>
+             <!-- Trigger the Modal -->
+            
+            <img id="modal-image" class="single-thumbnail" src="maturing_ceph/ceph-logo-white.jpg" alt="Maturing the Ceph storage platform at Ocado Technology">
+            
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            
+            
+              <!-- Modal Content (The Image) -->
+              <img class="modal-content" id="img01">
+            
+              <!-- Modal Caption (Image Text) -->
+              <div id="caption"></div>
+            </div>  
+                      
+                      
+                
+            <div class="post-entry">
+<p>After <a href="adopting_ceph.html">selecting Ceph as our default storage platform</a>,
+ we had to learn how to use it so, like many companies out there, we 
+created a small trial environment to test it out with a select few 
+applications. When we were happy with the feature set, we created a 
+small production pilot to see if there was real interest to use it 
+internally in a real world scenario.</p>
+<p>We quickly found that not only was there interest, people were so 
+excited we had to upgrade the solution within the first week! As this 
+was a small production pilot, it was designed to hold only around 500GB 
+of data; our next big challenge was how to grow beyond that.</p>
+<p>One of the early applications was sending massive amounts of 
+short-lived information from our automated and real-time warehouses and 
+our small test environment wasn’t able to cope with the load. 
+Thankfully, the whole idea behind Ceph is to scale out and grow easily, 
+and it was just a matter of adding more resources.</p>
+<p>In addition, we spent the first few weeks learning how to tune the 
+cluster, improve its performance, and understanding more about how the 
+system worked, which meant the cluster spent more time in maintenance 
+mode.</p>
+<p>As time went by, we created better resource strategies such as 
+keeping the metadata in fast storage while the bulkier storage was moved
+ to slower disks. We also kept live upgrading the cluster to newer 
+versions of Ceph that provided newer features and resources. Eventually 
+the pilot evolved into our main cluster; we originally started with 
+version Bobtail, then later upgraded to Cuttlefish, Dumpling, Emperor, 
+Firefly, Giant, Hammer and Infernalis. Today, our cluster is running 
+Jewel. Between upgrading to the major versions above, we also applied a 
+few minor updates.</p>
+<p>Originally, we started with four nodes, then quickly grew to six, 
+eight, 12 and then 16. Nowadays, Ceph is running on 72 nodes and none of
+ them are the original 16. To make things even more exciting, we’re 
+running Ceph on a version of Linux that wasn’t available at the time we 
+started, and is soon to be upgraded again.</p>
+<p>We started the pilot with a design target of hundreds of GB, and have
+ now expanded to hundreds of TB. I really can’t remember the last time I
+ participated in a project where the sizing grew by three orders of 
+magnitude!</p>
+<p>All of this upgrading and updating has been done live, with real 
+dependencies on our warehouses and supporting continuous deployment of 
+applications without any downtimes or disruptions. We’re at the point 
+now where we can seamlessly update our cluster with VMs running on it 
+such that only the people doing the work realise what’s going on.</p>
+<p>Luis Periquito, Unix Team Lead</p>
+</div>
+<p>This was originally posted in the <a href="https://www.ocadotechnology.com/blog/maturing-the-ceph-storage-platform-at-ocado-technology/">Ocado Technology blog</a> on the 19th of April 2017, but has since been removed</p>
+<p>Go back <a href="/">Home</a></p>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145348699-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145348699-1');
+</script>

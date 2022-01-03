@@ -1,0 +1,119 @@
+
+			  .hex-mobile
+			   {
+				   display: none;
+			   }
+			  #hexResize
+			   {
+				   max-width: 960px;
+				   min-width: 768px;
+				   margin: 0 auto;
+				   display: block;
+			   }
+            .hexagon-blue {
+                fill:#00a1e1;
+            }
+
+            .hexagon-green {
+                fill:#a9ae00;
+            }
+
+            .hexagon-grey {
+                fill:#53585a;
+            }
+
+            text {
+                font-family:'Source Sans Pro', sans-serif;
+                fill: white;
+                font-size:20px;
+				cursor: pointer; 
+            }
+
+            tspan {
+                text-anchor: middle;
+            }
+			
+			
+			/********* Animations **********/
+			.fade-in {
+			-webkit-animation-name: do-fade; /* Safari 4.0 - 8.0 */
+			-webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+			-webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+			animation-name: do-fade;
+			animation-duration: 0.5s;
+			animation-iteration-count: 1;
+			animation-direction: reverse;
+				cursor: pointer; 
+			}
+			/* Safari 4.0 - 8.0 */
+			@-webkit-keyframes do-fade{
+				 0% {
+				opacity:1;
+				}
+				 100% {
+				opacity:0;
+				}
+			}
+			
+			/* Standard syntax */
+			@keyframes do-fade {
+				 0% {
+				opacity:1;
+				}
+				 100% {
+				opacity:0;
+				}
+			}
+			   
+/*************************** Smaller than Ipad ***********************/ 
+@media screen and (max-width: 767px) {
+	#hexResize
+	{
+		display: none;
+	}
+.hex {
+	display: block;
+	float: left;
+	width: 50%;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5;
+	margin: 0 0 3px 0;
+}
+.hex-bottom-right {
+	width: 100%;
+}
+.hex a {
+	padding: 5px;
+	background-color: #A9AE00;
+	display: block;
+	color: #FFF;
+	height: 100px;
+	margin: 0 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.hex a:hover {
+	background-color: #dcdcdc;
+	text-decoration: none;
+}
+.hex-mobile ul, .hex-mobile ol {
+	padding: 0;
+	margin: 0;
+}
+.hex-mobile {
+	overflow: hidden;
+	display: block;
+	margin: 10px 0;
+}
+#main-content .internal-container, #main-content .dmbs-main {
+	padding: 0 0;
+}
+}
+	

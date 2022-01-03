@@ -1,0 +1,95 @@
+<title>How Ocado broke down its monoliths to create a scalable, saleable Smart Platform</title>
+<div><p>How Ocado broke down its monoliths to create a scalable, saleable Smart Platform article published in the computing.co.uk site</p></div>
+<div><p>The first page <a href="https://www.computing.co.uk/news/3028949/how-ocado-broke-down-its-monoliths-to-create-a-scalable-saleable-smart-platform" target="_blank">is here</a> (but requires authentication). I have created a <a href="computing_articles/how-ocado-broke-down-its-monoliths-to-create-a-scalable-saleable-smart-platform.html" target="_blank">local cached version</a>.</p></div>
+<h1 itemprop="name" class="article-title">How Ocado broke down its monoliths to create a scalable, saleable Smart Platform</h1>
+<h2 class="article-sub-title">Ocado wrote most of its own software and
+intends to sell it to other retailers - but the original monolithic
+architecture had to be torn down first</h2>
+<p dir="ltr">With 645,000 customers, 49,000 products and three distribution centres (for now - <a href="https://www.computing.co.uk/ctg/interview/3022675/cio-interview-paul-clarke-cio-ocado" target="_blank" rel="noopener noreferrer">it is building a fourth</a>), Ocado is the world's largest online grocer. However, even this disruptive firm has legacy technology.</p>
+<p dir="ltr">"Even though we're a grocery retailer on the front of it,
+we're not your typical retail enterprise," said software engineering
+team lead Matthew Cornford, at Computing's <a href="http://events.computing.co.uk/devops/static/home" target="_blank" rel="noopener noreferrer">DevOps Summit</a>. "Behind the scenes there's a vast array of technology powering our retail business...</p>
+<div id="rdm-above-related"></div>
+<p dir="ltr">"We've learnt that just picking software off the shelf
+isn't sufficient for our real-world problems and our complex needs. To
+address these problems, we've had to build up competencies in-house."</p>
+<p dir="ltr">Infrastructure team lead Luis Periquito said, "We had a
+very central typical enterprise solution, where if we want to grow
+things we just add more: we have central databases and if they run out
+of grunt, we add more CPUs and more RAM."</p>
+<p dir="ltr">He continued, "As we have these massive monoliths, we force
+ everything running on those machines to be exactly the same. Every
+single development team, every single application will have to work the
+same way [and] on the same environment."</p>
+<p dir="ltr">This monolithic environment brought many challenges to
+Ocado, which Cornford summarised as competition; painful deployment; and
+ narrow focus.</p>
+<p dir="ltr">Competition: "In a warehouse the size of ours, there are
+multiple projects going on, and these were assigned project managers,
+whose role it was to ensure that the technology part of the project was
+delivered on-time... The developers weren't equipped to know which
+projects were the most important - which was going to have the most
+valuable impact. What often happened was that the IT project manager who
+ could shout the loudest would get their work done first."</p>
+<p dir="ltr">Painful deployment: "If I wanted to deliver a monolithic
+application, that means downtime... and reduces the throughput and
+efficiency of our warehouse... Luckily there was a natural downtime window
+ at the end of the day, and all of our deployments had to be done in
+this time.</p>
+<p dir="ltr">"We also had quite a lengthy approval process to go
+through. To get a deployment done we had to sign a form; chase a manager
+ to sign it off; find someone in Operations to action our deployment;
+and this was all at the end of the day when everyone either wants to go
+home, or has already gone home...</p>
+<p dir="ltr">"Add to that the fact that our code wouldn't actually start
+ running until six or seven in the evening, so if something did go wrong
+ that inevitably meant the developer on call would get called in the
+early evening - if they were lucky - or more likely in the middle of the
+ night to sort out a problem."</p>
+<p dir="ltr">Narrow focus: "Our production environments were imposed on
+us by the infrastructure team. This led to teams that were quite narrow
+in focus and specialised... The problem with this is when something goes
+wrong, you need everyone to sort it out because no-one has the big
+picture. I remember a few support calls with tens of people where
+everyone was just trying to figure out if the fault lay in their area.
+That tendency can lead to stress, conflict and mistrust between teams."</p>
+<div><p>The second page <a href="https://www.computing.co.uk/news/3028949/how-ocado-broke-down-its-monoliths-to-create-a-scalable-saleable-smart-platform/page/2" target="_blank">is here</a> (but requires authentication). I have created a <a href="computing_articles/how-ocado-broke-down-its-monoliths-to-create-a-scalable-saleable-smart-platform-p2.html" target="_blank">local cached version</a>.</p></div>
+<h4 dir="ltr">Breaking down the monoliths</h4>
+<p dir="ltr">"Our current challenge is to create <a href="https://www.computing.co.uk/ctg/feature/3019162/will-ocados-robotics-change-the-supermarket-trade" target="_blank" rel="noopener noreferrer">a warehouse system that can power the world's largest retailers</a>
+ - so we couldn't use monoliths any more," said Periquito. "It's very
+hard to create monoliths; it's very hard to replicate... and they're very
+ expensive to start with... Instead, we had to use models: buildable parts
+that we could grow as and when we need. If we need to pack more items,
+we add more bots.</p>
+<p dir="ltr">"[In the new system] we have all these moving parts, so
+scale out naturally became very important. If we want to add more
+resources, we add more resources - we don't try to grow the resources we
+ have. That means we can expend capital if and when we need to;
+hopefully we don't have such a huge capital expense at the building."</p>
+<div id="rdm-above-related"></div>
+<p dir="ltr">Cornford added, "The monoliths are mostly gone, and we've
+moved to a more service-based architecture; something that's
+horizontally scalable and expects underlying infrastructure to fail.
+This is great because it means that our applications are more reliable
+in the face of actual hardware failures, and in the face of planned
+failure, like deployments and upgrades... It means we can do these things
+more often."</p>
+<p dir="ltr">Ocado took its first steps to becoming a technology supplier <a href="https://www.computing.co.uk/ctg/news/3022125/ocado-signs-technology-deal-with-frances-groupe-casino-supermarket" target="_blank" rel="noopener noreferrer">late last year</a>, and it intends to <a href="https://www.computing.co.uk/ctg/news/3024924/ocado-signs-deal-with-canadian-supermarket-group-for-its-ocado-smart-platform" target="_blank" rel="noopener noreferrer">continue this expansion</a>
+ - aiming at what Periquito called "the infrastructure Holy Grail":
+starting from a completely powered-off server room and warehouse, but
+able to automatically turn everything on, deploying infrastructure and
+applications and configuring the network without anyone touching it -
+anywhere in the world.</p>
+<p dir="ltr">"This," he admits, "is a really big challenge."</p>
+<p>Go back <a href="/">Home</a></p>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145348699-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145348699-1');
+</script>
+
